@@ -90,9 +90,9 @@ List each continent and the name of the country that comes first alphabetically.
 */
 SELECT continent, name
 FROM world x
-WHERE name = (SELECT name
+WHERE name = (SELECT TOP 1 name
 						FROM world y
-						WHERE x.continent=y.continent LIMIT 1) 
+						WHERE x.continent=y.continent) 
 ORDER BY name;
 
 /*
